@@ -1,0 +1,36 @@
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.movie-item {
+  width: calc((100% - 60px) / 4);
+  box-shadow: -1px 1px 0px 0px #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.movie-item:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.movie-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-info {
+  padding: 10px;
+}
+
+.movie-info h3, .movie-info p {
+  margin: 5px 0;
+}

@@ -1,0 +1,13 @@
+.link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.wrapper {
+  padding: 20px;
+}

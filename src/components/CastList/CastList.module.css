@@ -1,0 +1,28 @@
+.castContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.castMember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc((100% - 20px) / 2);
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.profileImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.characterName, .actorName {
+  margin: 0;
+  font-size: 14px;
+}
