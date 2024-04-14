@@ -10,7 +10,7 @@ const MoviesSearchSection = () => {
   const [movies, setMovies] = useState(null);
   const [query, setQuery] = useState('');
   const location = useLocation();
-  const [_, setSearchParams] = useSearchParams();
+  const setSearchParams = useSearchParams()[1];
 
   const getMovies = useCallback(
     async query => {
