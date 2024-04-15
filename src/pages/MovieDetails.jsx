@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 
 import { getMovieById } from 'services/api';
@@ -11,6 +11,7 @@ const MovieDetails = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const { moviesId } = useParams();
   const location = useLocation();
+  const goBack = useRef(location.state?.from || '/')
 
   useEffect(() => {
     const getMovieDetailes = async () => {
@@ -32,7 +33,7 @@ const MovieDetails = () => {
     <section>
       <div style={{ padding: '20px' }}>
         <Link
-          to={location.state?.from || '/'}
+          to={goBack.current}
           className="button-back"
         >
           Go Back

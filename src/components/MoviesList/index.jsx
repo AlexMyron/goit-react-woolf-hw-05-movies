@@ -1,13 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import css from './MoviesList.module.css';
 
 import defaul_movie_image from '../../images/default_movie_image.webp';
 
 const MoviesList = ({ movies }) => {
+  const location = useLocation();
+
   return (
     <div className={css['movies-container']}>
       {movies.map(({ id, name, poster_path, title }) => (
-        <Link to={`movies/${id}`} key={id} className={css['movie-item']} state={{ from: '/' }}>
+        <Link
+          to={`/movies/${id}`}
+          key={id}
+          className={css['movie-item']}
+          state={{ from: location }}
+        >
           <img
             src={
               poster_path

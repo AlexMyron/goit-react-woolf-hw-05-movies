@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import MovieSearch from '../MovieSearch';
 import css from './MoviesSearchSection.module.css';
 
 import { getMoviesByName } from '../../services/api';
+import MoviesList from 'components/MoviesList';
 
 const MoviesSearchSection = () => {
   const [movies, setMovies] = useState(null);
@@ -33,19 +34,7 @@ const MoviesSearchSection = () => {
   return (
     <div className={css.wrapper}>
       <MovieSearch onSearch={handleSearch} />
-      <div>
-        {movies &&
-          movies.map(({ title, id }) => (
-            <Link
-              className={css.link}
-              to={`/movies/${id}`}
-              state={{ from: `/movies?query=${queryParam}` }}
-              key={id}
-            >
-              - {title}
-            </Link>
-          ))}
-      </div>
+      <div>{movies && <MoviesList movies={movies} />}</div>
     </div>
   );
 };
