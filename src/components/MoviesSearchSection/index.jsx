@@ -9,6 +9,7 @@ import { getMoviesByName } from '../../services/api';
 const MoviesSearchSection = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
+  const queryParam = searchParams.get('query');
 
   const getMovies = async query => {
     try {
@@ -21,15 +22,13 @@ const MoviesSearchSection = () => {
 
   const handleSearch = query => {
     setSearchParams({ query: query });
-    getMovies(query);
   };
 
   useEffect(() => {
-    const query = searchParams.get('query');
-    if (!query) return;
+    if (!queryParam) return;
 
-    getMovies(query);
-  }, [searchParams]);
+    getMovies(queryParam);
+  }, [searchParams, queryParam]);
 
   return (
     <div className={css.wrapper}>
@@ -40,7 +39,7 @@ const MoviesSearchSection = () => {
             <Link
               className={css.link}
               to={`/movies/${id}`}
-              state={{ query: searchParams.get('query') }}
+              state={{ from: `/movies?query=${queryParam}` }}
               key={id}
             >
               - {title}

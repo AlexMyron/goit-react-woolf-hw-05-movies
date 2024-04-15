@@ -24,8 +24,6 @@ const MovieDetails = () => {
     getMovieDetailes();
   }, [moviesId]);
 
-  const pageQuery = location.state?.query;
-
   if (errorMessage) {
     return <div>{errorMessage}</div>;
   }
@@ -34,7 +32,7 @@ const MovieDetails = () => {
     <section>
       <div style={{ padding: '20px' }}>
         <Link
-          to={pageQuery ? `/movies?query=${pageQuery}` : '/'}
+          to={location.state?.from || '/'}
           className="button-back"
         >
           Go Back

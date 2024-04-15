@@ -7,7 +7,7 @@ const MoviesList = ({ movies }) => {
   return (
     <div className={css['movies-container']}>
       {movies.map(({ id, name, poster_path, title }) => (
-        <Link to={`movies/${id}`} key={id} className={css['movie-item']}>
+        <Link to={`movies/${id}`} key={id} className={css['movie-item']} state={{ from: '/' }}>
           <img
             src={
               poster_path
