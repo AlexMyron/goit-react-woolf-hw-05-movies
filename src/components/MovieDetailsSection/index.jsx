@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Button from 'components/Button';
 
 import css from './MovieDetailsSection.module.css';
+import default_movie_image from '../../images/default_movie_image.webp';
 
 const MovieDetailsSection = ({
   movie: {
@@ -23,7 +24,11 @@ const MovieDetailsSection = ({
     <div className={css.movieContainer}>
       <div className={css.poster}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w500${poster_path}`
+              : default_movie_image
+          }
           alt={title}
         />
       </div>

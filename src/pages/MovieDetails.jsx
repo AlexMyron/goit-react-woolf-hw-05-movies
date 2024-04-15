@@ -35,7 +35,6 @@ const MovieDetails = () => {
       <div style={{ padding: '20px' }}>
         <Link
           to={pageQuery ? `/movies?query=${pageQuery}` : '/'}
-          style={{ display: 'block', padding: '10px 20px' }}
           className="button-back"
         >
           Go Back
