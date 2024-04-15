@@ -13,3 +13,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.button-back {
+  padding: 10px 20px;
+  width: fit-content;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button-back:hover {
+  background-color: #0056b3;
+}

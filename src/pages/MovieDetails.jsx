@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 
 import { getMovieById } from 'services/api';
 
@@ -24,19 +24,23 @@ const MovieDetails = () => {
     getMovieDetailes();
   }, [moviesId]);
 
+  const pageQuery = location.state?.query;
+
   if (errorMessage) {
     return <div>{errorMessage}</div>;
   }
 
   return (
     <section>
-      <Link
-        to={location.state?.from || '/'}
-        state={{ pageQuery: location.state?.query || '' }}
-        style={{ display: 'block', padding: '10px 20px' }}
-      >
-        Go Back
-      </Link>
+      <div style={{ padding: '20px' }}>
+        <Link
+          to={pageQuery ? `/movies?query=${pageQuery}` : '/'}
+          style={{ display: 'block', padding: '10px 20px' }}
+          className="button-back"
+        >
+          Go Back
+        </Link>
+      </div>
       {movieData && <MovieDetailsSection movie={movieData} />}
       <Suspense fallback={<Loader />}>
         <Outlet />

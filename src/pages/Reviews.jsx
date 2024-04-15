@@ -24,12 +24,9 @@ const Reviews = () => {
     getReviews();
   }, [moviesId]);
 
-  const content = error ? (
-    <p>{error}</p>
-  ) : (
-    reviews && <ReviewsList reviews={reviews} />
-  );
-  return <>{reviews?.length ? content : <p>There are no reviews yet...</p>}</>;
+  if (error) return { error };
+  else if (reviews?.length) return <ReviewsList reviews={reviews} />;
+  else if (reviews?.length === 0) return <p>There are no reviews yet...</p>;
 };
 
 export default Reviews;

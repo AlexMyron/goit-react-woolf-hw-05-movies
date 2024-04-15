@@ -24,11 +24,7 @@ const Home = () => {
     return <div>{errorMessage}</div>;
   }
 
-  return (
-    <section>
-      <MoviesList movies={moviesList} />
-    </section>
-  );
+  return <section>{moviesList && <MoviesList movies={moviesList} />}</section>;
 };
 
 export default Home;

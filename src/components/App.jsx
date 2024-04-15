@@ -2,8 +2,6 @@ import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import SharedLayout from './SharedLayout';
-// import Reviews from 'pages/Reviews';
-// import Cast from 'pages/Cast';
 
 export const App = () => {
   const Home = lazy(() => import('../pages/Home'));
