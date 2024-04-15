@@ -1,12 +1,12 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 
 const Header = () => {
   return (
     <header className={css.header}>
-      <Link to="/" className={css.logo}>
+      <NavLink to="/" className={({isActive}) => isActive ? `${css.logo} ${css.active}` : css.logo}>
         HOME CINEMA
-      </Link>
+      </NavLink>
       <nav className={css.nav}>
         <NavLink
           to="/movies"
