@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import css from './MoviesList.module.css';
 
-import defaul_image from '../../images/default_image.webp';
+import defaul_movie_image from '../../images/default_movie_image.webp';
 
 const MoviesList = ({ movies }) => {
   return (
@@ -13,7 +13,7 @@ const MoviesList = ({ movies }) => {
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                  : defaul_image
+                  : defaul_movie_image
               }
               alt={name}
               className={css['movie-image']}
