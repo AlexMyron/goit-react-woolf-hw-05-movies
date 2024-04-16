@@ -47,10 +47,10 @@ const MovieDetailsSection = ({
         </p>
 
         <div className={css['link-bar']}>
-          <Button to={`/movies/${id}/cast`} state={location.state}>
+          <Button to={`/movies/${id}/cast`}>
             Cast
           </Button>
-          <Button to={`/movies/${id}/reviews`} state={location.state}>
+          <Button to={`/movies/${id}/reviews`}>
             Reviews
           </Button>
         </div>
